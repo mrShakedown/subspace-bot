@@ -1,5 +1,6 @@
 # subspace-bot
 
 Installation guides:
-RUS version - https://teletype.in/@shakedown/subspace-bot-rus
-ENG version - https://teletype.in/@shakedown/subspace-bot-eng
+
+<h3> RUS version - <a href="https://teletype.in/@shakedown/subspace-bot-rus" title=«Link for rus guide>Link for rus guide</a> </h3>
+<h3> ENG version - <a href="https://teletype.in/@shakedown/subspace-bot-eng" title=«Link for eng guide>Link for eng guide</a> </h3>
