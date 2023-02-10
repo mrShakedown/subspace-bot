@@ -41,7 +41,7 @@ def alertsOn(message):
             	threading.Timer(alert_timer, cpu_alert).start()
 
             cpu_util = subprocess.getoutput(["top -b -n1 | grep 'load average' | awk '{print $12}' | tr -d ','"])
- #           cpu_util = float(cpu_util)
+ #           cpu_util = float(cpu_util) fix cpu util
             if float(cpu_util) > float(0.05):
                 bot.send_message(chatId, 'ALARM: high LA on server:  ' + str(cpu_util))
             #logic
