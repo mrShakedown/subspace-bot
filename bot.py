@@ -21,7 +21,7 @@ def alertsOn(message):
         bot.send_message(message.chat.id, 'Alerts ready to work')
         chatId = message.chat.id
 
-        def used_disk_alert():
+        def used_disk_alert(): #change procentil disk
             if alert == True:
                 threading.Timer(alert_timer, used_disk_alert).start()
 
