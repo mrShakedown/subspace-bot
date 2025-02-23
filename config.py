@@ -1,3 +1,4 @@
+#just config env
 token = 'YOUR_TOKEN' #bot api-token
 data_path = '/dev' #path to track disk space and alerts
 timer = 10 #alert and check frequency in seconds
