@@ -5,21 +5,20 @@ import subprocess
 import logging
 import os
 
-# Настройка логирования
+# Logging env
 log_folder = config.log_path  #log_folder
 if not os.path.exists(log_folder):  # make log_folder if not exists
     os.makedirs(log_folder)
 
 log_file = os.path.join(log_folder, "bot.log")  # abs path log folder
 
-# Конфигурация логгера
 logging.basicConfig(
     filename=log_file,
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
-# Логирование начала работы бота
+# start_logging
 logging.info("Bot started. Logs will be stored in: %s", log_file)
 
 from telebot import apihelper
@@ -73,11 +72,11 @@ def alertsOn(message):
             if alert == True:
                 threading.Timer(alert_timer, sync_alert).start()
 
-                sync_speed = subprocess.getoutput(["journalctl -e -u subspaced.service  --since '1 minute ago' | tail -n1 | grep Syncing | awk '{print $11}'"])
+                imported_speed = subprocess.getoutput(["journalctl -e -u autonomys-node-taurus-operator0.service --since '1 minute ago' | tail -n1 | grep Imported | awk -F'#' '{print $2}' | awk '{print $1}'"])
 
-                if float(sync_speed) < 0.1:
-                    bot.send_message(chatId, 'ALARM: node not sync now | Now sync speed is ' + str(sync_speed) + 'bps')
-                    logging.warning("Node sync speed low: %s bps", sync_speed)
+                if float(imported_speed) < 0.1:
+                    bot.send_message(chatId, 'ALARM: node not sync now | Now sync speed is ' + str(imported_speed) + 'bps')
+                    logging.warning("Node sync speed low: %s bps", imported_speed)
 
         sync_alert()
 
