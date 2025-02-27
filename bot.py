@@ -131,12 +131,13 @@ def cpu(message):
         bot.send_message(message.chat.id, 'TOP process list: \n\n' + free_cpu)
         logging.info("CPU info requested by user %s", message.from_user.id)
 
-@bot.message_handler(commands=["sync"])
-def sync(message):
-    if message.from_user.id == config.admin_id:
-        sync_state = subprocess.getoutput(["journalctl -u subspaced -xe | tail -n 1 | awk '/best/ {print $10,$11,$12,$13,$14,$15,$16,$17,$22,$23,$24,$25}'"])
-        bot.send_message(message.chat.id, 'last sync log: \n' + sync_state)
-        logging.info("Sync info requested by user %s", message.from_user.id)
+#need upd 
+#@bot.message_handler(commands=["sync"])
+#def sync(message):
+#    if message.from_user.id == config.admin_id:
+#        sync_state = subprocess.getoutput(["journalctl -u subspaced -xe | tail -n 1 | awk '/best/ {print $10,$11,$12,$13,$14,$15,$16,$17,$22,$23,$24,$25}'"])
+#        bot.send_message(message.chat.id, 'last sync log: \n' + sync_state)
+#        logging.info("Sync info requested by user %s", message.from_user.id)
 
 @bot.message_handler(commands=["status"])
 def status(message):
